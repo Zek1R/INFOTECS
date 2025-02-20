@@ -21,14 +21,19 @@ print(f'Время полета {T}')
 
 t_list = []
 t = 0
-while t <= T:
+k = 0
+while t <= T and k < 1000000:
     t_list.append(t)
     t += 0.0001
+    k+=1
+t_list.append(T)
 
 x_list = [X(v0, a, t) for t in t_list]
 y_list = [Y(v0, a, t) for t in t_list]
 
 
+
+print(f"Точка падения камня ({x_list[-1]}, {y_list[-1]})")
 plt.grid()
 plt.plot(x_list, y_list, c='b')
 plt.show()
